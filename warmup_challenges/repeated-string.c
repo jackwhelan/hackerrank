@@ -13,21 +13,23 @@ char* readline();
 // Complete the repeatedString function below.
 long repeatedString(char* s, long n)
 {
-    int acount = 0;
-    int iter = 0;
-    while(iter != 0)
+    long a_count = 0;
+    for (int i = 0; i < strlen(s); i++)
     {
-        for(int i = 0; i < strlen(s); i++)
+        if(s[i] == 'a')
         {
-            n--;
-            printf("%ld", n);
-            if(s[i] == 'a')
-            {
-                acount++;
-            }
+            a_count++;
         }
     }
-    return acount;
+    a_count = a_count * (n / strlen(s));
+    for (int i = 0; i < n % strlen(s); i++)
+    {
+        if(s[i] == 'a')
+        {
+            a_count++;
+        }
+    }
+    return a_count;
 }
 
 int main()
